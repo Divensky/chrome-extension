@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
   "name": "Reading Time Calculator",
-  "description": "Adds reading time to Chrome docs",
-  "version": "1.0",
+  "description": "Adds reading time to LinkedIn and MDN pages",
+  "version": "0.1.0",
   "action": {
     "default_popup": "popup.html"
   },
@@ -15,9 +15,10 @@
   "content_scripts": [
     {
       "js": ["scripts/content.js"],
+      "run_at": "document_idle",
       "matches": [
-        "https://developer.chrome.com/docs/extensions/*",
-        "https://developer.chrome.com/docs/webstore/*"
+        "https://www.linkedin.com/in/*",
+        "https://developer.mozilla.org/en-US/docs/*"
       ]
     }
   ]
