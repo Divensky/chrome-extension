@@ -1,5 +1,6 @@
 chrome.runtime.onInstalled.addListener(() => {
-  chrome.action.setBadgeText({ text: 'On' });
+  chrome.action.setBadgeText({ text: 'Off' });
+  chrome.tabs.create({ url: 'pages/onboarding.html' });
 });
 
 chrome.runtime.setUninstallURL(
