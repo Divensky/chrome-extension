@@ -4,7 +4,13 @@
   "description": "Adds reading time to LinkedIn and MDN pages",
   "version": "0.1.0",
   "action": {
-    "default_popup": "popup.html"
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "images/2/icon-16.png",
+      "32": "images/2/icon-32.png",
+      "48": "images/2/icon-48.png",
+      "128": "images/2/icon-128.png"
+    }
   },
   "icons": {
     "16": "images/icon-16.png",
@@ -21,5 +27,9 @@
         "https://developer.mozilla.org/en-US/docs/*"
       ]
     }
-  ]
+  ],
+  "background": {
+    "service_worker": "scripts/background.js"
+  },
+  "permissions": ["activeTab"]
 }
