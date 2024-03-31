@@ -22,9 +22,7 @@ function insertBadge(element, badge) {
   }
 }
 
-const element = document.querySelector('main');
-
-if (element) {
+function processPage() {
   let readingTime = calculateReadingTime(element);
   console.log('READING-TIME: calculated value ', readingTime);
   if (readingTime === 0) {
@@ -39,6 +37,34 @@ if (element) {
     const badge = createBadge(readingTime);
     insertBadge(element, badge);
   }
-} else {
-  console.log('READING-TIME: No element found');
+}
+
+const element = document.querySelector('main');
+
+const DEFAULT = {
+  enableMdn: true,
+};
+
+console.log('chrome.storage', chrome.storage, chrome.storage?.sync);
+const hasStorage = chrome.storage;
+
+if (element && !hasStorage && DEFAULT.enableMdn) {
+  processPage();
+} else if (element && hasStorage) {
+  chrome.storage?.sync?.get('enableMdn', (data) => {
+    console.log('value from storage', data.enableMdn);
+    enableMdn =
+      data.enableMdn !== undefined ? data.enableMdn : DEFAULT.enableMdn;
+
+    if (element && enableMdn) {
+      processPage();
+    } else {
+      console.log(
+        'READING-TIME: Nothing done. The element is',
+        element,
+        'and enabled is:',
+        enableMdn
+      );
+    }
+  });
 }
