@@ -1,5 +1,6 @@
 const actionableUrls = [
   'https://developer.mozilla.org/en-US/docs/',
+  'https://developer.chrome.com/docs',
   'https://www.linkedin.com/in/',
 ];
 

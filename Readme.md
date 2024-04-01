@@ -1,10 +1,10 @@
 # Welcome to this Chrome extension!
 
-This Chrome extension is designed to address user retention challenges and demonstrate features that help enhance user experience and tailor the extension's functionality to the specific needs of a user.
+This Chrome extension is designed to demonstrate features that help enhance user experience and address user retention challenges.
 
 ## Overview
 
-**Word Count and Reading Time Estimation:** This extension comes into action when the user is browsing technical documentation on MDN reference pages. It calculates the word count on a page and adds a snippet with an estimation of the reading time.
+**Word Count and Reading Time Estimation:** This extension comes into action when the user is browsing web pages as listed in the Options. It calculates the word count on a page and adds a snippet with an estimation of the reading time.
 
 ![Reading Time](./images/reading-time-snippet_cropped.png)
 
@@ -18,13 +18,17 @@ This Chrome extension is designed to address user retention challenges and demon
 
 - **[Options page](https://developer.chrome.com/docs/extensions/develop/ui/options-page):** Allows users to customize the extension according to their needs, such as disabling it on specific websites or contacting the developer with questions or bug reports.
 
+![Options page](./images/options-screen.jpg)
+
 ### User Interaction
 
 - **[Tooltip](https://developer.chrome.com/docs/extensions/develop/ui#tooltips):** Provides information about the extension when users hover over the extension icon, improving user understanding.
 
-- **[Popup](https://developer.chrome.com/docs/extensions/develop/ui/add-popup):** Displays important information and settings when users click the extension icon in the browser, offering convenient access to key features.
+- **[Popup](https://developer.chrome.com/docs/extensions/develop/ui/add-popup):** Displays information and gives access to key features when users click the extension icon in the browser.
 
-- **[Badge](https://developer.chrome.com/docs/extensions/develop/ui#badges):** Displays a badge over the extension icon to indicate its current state, such as "On" or "Off".
+![Popup](./images/popup.jpg)
+
+- **[Badge](https://developer.chrome.com/docs/extensions/develop/ui#badges):** Displays a badge over the extension icon to indicate its current state, such as "On" or "Off."
 
 ### Enhanced Security
 
@@ -32,7 +36,7 @@ This Chrome extension is designed to address user retention challenges and demon
 
 ## Installation
 
-To install the extension, simply clone this repo. Then follow these steps:
+To install the extension, clone this repo. Then follow these steps:
 
 - 1. Go to the Extensions page by entering `chrome://extensions` in a new tab.
 - 2. Enable Developer Mode by clicking the toggle switch on the right.
@@ -42,6 +46,6 @@ If needed, please refer to [Chrome Extension Docs](https://developer.chrome.com/
 
 ## Conclusion
 
-If you have any questions or suggestions, don't hesitate to reach out to the author.
+If you have any questions or suggestions, don't hesitate to reach out to the [author](https://github.com/divensky).
 
 Thank you for using this Chrome extension!

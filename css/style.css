@@ -1,18 +1,30 @@
 .popup {
+  box-sizing: border-box;
   min-width: 250px;
+  padding: 0 10px;
 }
 
 .popup__title {
   color: green;
+  text-align: center;
 }
 
 .container {
+  box-sizing: border-box;
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 16px 8px;
+  padding: 16px 16px;
+
 }
 
 .centered {
   text-align: center;
+}
+
+.options__checkboxes {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 4px 16px;
 }

@@ -8,10 +8,35 @@
   </head>
   <body class="container">
     <h1>Extension Options</h1>
-    <label>
-      <input type="checkbox" id="enableMdn" checked /> Enable this extension on
-      MDN Web Docs
-    </label>
+    <p>Please select where to calculate reading time:</p>
+    <div id="checkboxes" class="options__checkboxes">
+      <label>
+        <input
+          type="checkbox"
+          class="js-checkbox"
+          id="enableMdn"
+          value="mdnDocs"
+          checked
+        />MDN Web Docs
+      </label>
+      <label>
+        <input
+          type="checkbox"
+          class="js-checkbox"
+          id="enableChrome"
+          value="chromeDocs"
+          checked
+        />Chrome Docs
+      </label>
+      <label>
+        <input
+          type="checkbox"
+          class="js-checkbox"
+          id="enableLinkedin"
+          value="linkedIn"
+        />LinkedIn
+      </label>
+    </div>
     <h2 id="contact">Contact</h2>
     <p>
       You are welcome to contact the developer with any suggestions or bug
