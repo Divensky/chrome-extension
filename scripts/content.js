@@ -1,3 +1,7 @@
+const DEFAULT = {
+  enableMdn: true,
+};
+
 function calculateReadingTime(element) {
   const text = element.textContent;
   const wordMatchRegExp = /[^\s]+/g;
@@ -7,49 +11,36 @@ function calculateReadingTime(element) {
   return readingTime;
 }
 
-function createBadge(readingTime) {
-  const badge = document.createElement('span');
-  badge.textContent = ` ⏱️ ${readingTime} min read`;
-  return badge;
+function createSnippet(readingTime) {
+  const snippet = document.createElement('span');
+  snippet.textContent = ` ⏱️ ${readingTime} min read`;
+  return snippet;
 }
 
-function insertBadge(element, badge) {
+function insertSnippet(element, snippet) {
   const heading = element.querySelector('h1');
   if (heading) {
-    heading.insertAdjacentElement('afterEnd', badge);
+    heading.insertAdjacentElement('afterEnd', snippet);
   } else {
-    console.log('READING-TIME: No h1 found');
+    console.log(
+      'READING-TIME: could not insert snippet - insertion spot not found'
+    );
   }
 }
 
-function processPage() {
-  let readingTime = calculateReadingTime(element);
-  console.log('READING-TIME: calculated value ', readingTime);
-  if (readingTime === 0) {
-    console.log('READING-TIME: Did not find any text, retrying...');
-    setTimeout(() => {
-      readingTime = calculateReadingTime(element);
-      console.log('READING-TIME: After retrying got', readingTime);
-      const badge = createBadge(readingTime);
-      insertBadge(element, badge);
-    }, 3000);
-  } else {
-    const badge = createBadge(readingTime);
-    insertBadge(element, badge);
-  }
+function processPage(element) {
+  const readingTime = calculateReadingTime(element);
+  const snippet = createSnippet(readingTime);
+  insertSnippet(element, snippet);
 }
+
+// todo: set up a bundler and/or resolve ES6 bug with Chrome and then replace the above with imports
 
 const element = document.querySelector('main');
-
-const DEFAULT = {
-  enableMdn: true,
-};
-
-console.log('chrome.storage', chrome.storage, chrome.storage?.sync);
 const hasStorage = chrome.storage;
 
 if (element && !hasStorage && DEFAULT.enableMdn) {
-  processPage();
+  processPage(element);
 } else if (element && hasStorage) {
   chrome.storage?.sync?.get('enableMdn', (data) => {
     console.log('value from storage', data.enableMdn);
@@ -57,7 +48,7 @@ if (element && !hasStorage && DEFAULT.enableMdn) {
       data.enableMdn !== undefined ? data.enableMdn : DEFAULT.enableMdn;
 
     if (element && enableMdn) {
-      processPage();
+      processPage(element);
     } else {
       console.log(
         'READING-TIME: Nothing done. The element is',

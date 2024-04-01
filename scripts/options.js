@@ -1,19 +1,13 @@
+async function checkPermission(permission) {
+  return await chrome.permissions.contains({ permissions: [permission] });
+}
+
+const DEFAULT = {
+  enableMdn: true,
+};
+
 document.addEventListener('DOMContentLoaded', async () => {
-  async function checkPermission(permission) {
-    return await chrome.permissions.contains({ permissions: [permission] });
-  }
-
   const hasStoragePermission = await checkPermission('storage');
-
-  console.log('storage permission at Options start:', hasStoragePermission);
-  //TODO: remove console.logs
-  // TODO: convert to modules and move permission code to a module
-  const DEFAULT = {
-    enableMdn: true,
-  };
-
-  const hasStorage = chrome.storage;
-  console.log('options: chrome.storage', chrome.storage);
 
   const enableMdnElement = document.getElementById('enableMdn');
   if (!enableMdnElement) {
@@ -27,10 +21,6 @@ document.addEventListener('DOMContentLoaded', async () => {
   });
 
   enableMdnElement.addEventListener('change', function () {
-    console.log(
-      'options: checkbox clicked, new value',
-      enableMdnElement.checked
-    );
     if (hasStoragePermission) {
       chrome.storage.sync.set({ enableMdn: enableMdnElement.checked });
       console.log(

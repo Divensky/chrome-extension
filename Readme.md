@@ -6,7 +6,7 @@ This Chrome extension is designed to address user retention challenges and demon
 
 **Word Count and Reading Time Estimation:** This extension comes into action when the user is browsing technical documentation on MDN reference pages. It calculates the word count on a page and adds a snippet with an estimation of the reading time.
 
-![Reading Time](./images/reading-time-snippet.png)
+![Reading Time](./images/reading-time-snippet_cropped.png)
 
 ## Features
 
@@ -34,11 +34,11 @@ This Chrome extension is designed to address user retention challenges and demon
 
 To install the extension, simply clone this repo. Then follow these steps:
 
-- 1. Go to the Extensions page by entering chrome://extensions in a new tab.
+- 1. Go to the Extensions page by entering `chrome://extensions` in a new tab.
 - 2. Enable Developer Mode by clicking the toggle switch on the right.
-- 3. Click the **Load unpacked** button on the left and select the extension directory
+- 3. Click the **Load unpacked** button on the left and select the extension directory.
 
-If needed, please refer to [Chrome Extension Docs](https://developer.chrome.com/docs/extensions/get-started/tutorial/hello-world#load-unpacked) for further instructions on installation.
+If needed, please refer to [Chrome Extension Docs](https://developer.chrome.com/docs/extensions/get-started/tutorial/hello-world#load-unpacked) for further instructions.
 
 ## Conclusion
 
